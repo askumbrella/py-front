@@ -54,7 +54,7 @@ class API(object):
             )
 
             if response.status_code == 429:
-                time.sleep(min(int(response.headers.get('Retry-After'), 60), 120))
+                time.sleep(min(int(response.headers.get('Retry-After'), 10), 120))
             else:
                 break
         response.raise_for_status()
